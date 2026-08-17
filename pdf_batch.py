@@ -47,5 +47,5 @@ if __name__ == "__main__":
     }
     
 
-    # batch_replace_pdf_text(SOURCE_FOLDER, DEST_FOLDER, TEXT_MAPPING)
+    batch_replace_pdf_text(SOURCE_FOLDER, DEST_FOLDER, TEXT_MAPPING)
     
