@@ -1,6 +1,8 @@
 import tkinter as tk
 from pdf_batch import batch_replace_pdf_text
 
+#allows user to specify file paths for input and output, and allows users to customize target and replacement text.
+
 def on_button_press():
     source_file = entry1.get()
     dest_file = entry2.get()
@@ -28,7 +30,7 @@ entry2.grid(row=1, column=1)
 entry3.grid(row=2, column=1)
 entry4.grid(row=3, column=1)
 
-
+#calls our method on_button_press and places entry data into the params of batch_replace_pdf_text
 submit_button = tk.Button(root, text="Submit", command=on_button_press).grid(row=4, column=0)
 
 

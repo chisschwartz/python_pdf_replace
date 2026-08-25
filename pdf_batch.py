@@ -1,11 +1,14 @@
 import os
 import pymupdf
 
+#replaces all instances of a certain string with another within a file containing .pdf files
 def batch_replace_pdf_text(input_dir, output_dir, replacements):
     
+    #if our oath does not exist, create new output directory
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
         
+    #scans for each file within our path with a .pdf extension
     for filename in os.listdir(input_dir):
         if not filename.lower().endswith('.pdf'):
             continue
@@ -13,10 +16,13 @@ def batch_replace_pdf_text(input_dir, output_dir, replacements):
         input_path = os.path.join(input_dir, filename)
         output_path = os.path.join(output_dir, f"updated_{filename}")
         
+        #opens our document
         doc = pymupdf.open(input_path)
         print(f"Processing: {filename}...")
         
+        #scans every page within the document
         for page in doc:
+            #for every instance of target_text, replace with our replacement text
             for target_text, replacement in replacements.items():
                 text_instances = page.search_for(target_text)
                 
@@ -43,7 +49,7 @@ if __name__ == "__main__":
     DEST_FOLDER = '/Users/chris.schwartz/OneDrive - TCI Products Co/Desktop/GHS Backup/GHS labels/TCI Labels/Thinners - 110/DT5/AF/PDF/UPDATED'
     
     TEXT_MAPPING = {
-        "www.P65Warnings.ca.gov." : "Changed"
+        "www.P65Warnings.ca.gov." : "Poopbutt"
     }
     
 
