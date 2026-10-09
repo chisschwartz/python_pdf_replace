@@ -2,7 +2,7 @@ import os
 import pymupdf
 
 #replaces all instances of a certain string with another within a file containing .pdf files
-def batch_replace_pdf_text(input_dir, output_dir, replacements):
+def batch_replace_pdf_text(input_dir, output_dir, replacements, font_size):
     
     #if our oath does not exist, create new output directory
     if not os.path.exists(output_dir):
@@ -34,7 +34,7 @@ def batch_replace_pdf_text(input_dir, output_dir, replacements):
                     page.insert_text(
                         pymupdf.Point(rect.x0, rect.y1 - 2),
                         replacement,
-                        fontsize=8,
+                        fontsize=font_size,
                         fontname="Calibri",
                         color=(0, 0, 0)
                 )
